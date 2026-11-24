@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maynul Hassan Nissan | x_sekigan // dark_lemur</title>
+  <meta name="description" content="Cybersecurity portfolio of Maynul Hassan Nissan (dark_lemur / x_sekigan) — IT & Cybersecurity Analyst and Cybersecurity Solution Lead." />
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#05080f',
+            surface: '#0b1120',
+            surfaceLight: '#0f172a',
+            borderSlate: '#1e293b',
+            sentinelCyan: '#00d4ff',
+            skyAccent: '#38bdf8',
+            sentinelEmerald: '#10b981',
+            royalBlue: '#2563eb',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #05080f;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Ambient Background Grid */
+    .bg-sentinel-grid {
+      background-image:
+        linear-gradient(to right, rgba(30, 41, 59, 0.28) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.28) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05080f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00d4ff;
+    }
+
+    /* SIGNATURE SPEEDWAY SENTINEL CARD HOVER EFFECT:
+       Animated glowing cyan-to-emerald top border line + subtle ambient cyan glow */
+    .sentinel-card {
+      position: relative;
+      background-color: #0b1120;
+      border: 1px solid #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .sentinel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, #00d4ff, #10b981);
+      transform: translateX(-50%);
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.75);
+      z-index: 10;
+    }
+
+    .sentinel-card:hover {
+      border-color: rgba(0, 212, 255, 0.38);
+      box-shadow: 0 10px 32px -12px rgba(0, 212, 255, 0.22), 0 0 0 1px rgba(0, 212, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .sentinel-card:hover::before {
+      width: 100%;
+    }
+
+    /* Radar Sweep Animation for HUD SVG */
+    @keyframes radarSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .radar-sweep {
+      transform-origin: 60px 60px;
+      animation: radarSpin 6s linear infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    .pulse-dot {
+      animation: pulseDot 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-sentinelCyan/25 selection:text-sentinelCyan">
+
+  <!-- Subtle Radial Top Glow -->
+  <div class="pointer-events-none fixed inset-0 bg-sentinel-grid opacity-60 -z-20"></div>
+  <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[820px] h-[360px] bg-gradient-to-b from-royalBlue/15 via-sentinelCyan/10 to-transparent blur-3xl -z-10"></div>
+
+  <!-- ==================== 1. STICKY GLASSMORPHIC NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 bg-obsidian/80 backdrop-blur-md border-b border-borderSlate/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-sentinelCyan shadow-[0_0_10px_#00d4ff] pulse-dot"></span>
+        <span class="font-mono text-sm sm:text-base font-semibold tracking-tight text-slate-100">
+          <span class="text-sentinelCyan">x_sekigan</span>
+          <span class="text-slate-600 mx-1">//</span>
+          <span class="text-slate-200 group-hover:text-sentinelEmerald transition-colors">dark_lemur</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-7 font-mono text-xs tracking-wider uppercase text-slate-400">
+        <a href="#about" class="hover:text-sentinelCyan transition-colors">About</a>
+        <a href="#experience" class="hover:text-sentinelCyan transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-sentinelCyan transition-colors">Projects</a>
+        <a href="#roadmap" class="hover:text-sentinelCyan transition-colors">Roadmap</a>
+        <a href="#arsenal" class="hover:text-sentinelCyan transition-colors">Arsenal</a>
+        <a href="#contact" class="px-3.5 py-2 rounded-lg bg-sentinelCyan/10 border border-sentinelCyan/40 text-sentinelCyan hover:bg-sentinelCyan hover:text-obsidian font-semibold transition-all">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg border border-borderSlate text-slate-300 hover:border-sentinelCyan hover:text-sentinelCyan transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-surface/95 backdrop-blur-md border-b border-borderSlate px-4 py-4">
+      <div class="flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-slate-300">
+        <a href="#about" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-surfaceLight hover:text-sentinelCyan">About</a>
+        <a href="#experience" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-surfaceLight hover:text-sentinelCyan">Experience</a>
+        <a href="#projects" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-surfaceLight hover:text-sentinelCyan">Projects</a>
+        <a href="#roadmap" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-surfaceLight hover:text-sentinelCyan">Roadmap</a>
+        <a href="#arsenal" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-surfaceLight hover:text-sentinelCyan">Arsenal</a>
+        <a href="#contact" class="mobile-nav-link py-2 px-3 rounded-lg bg-sentinelCyan/10 text-sentinelCyan border border-sentinelCyan/30">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ==================== 2. HERO SECTION (STRICT 2-COLUMN DESKTOP GRID) ==================== -->
+    <section id="about" class="py-14 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+        <!-- Left Column (7 cols on desktop) -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-sentinelCyan/30 text-sentinelCyan font-mono text-xs font-medium mb-5">
+            <span class="w-2 h-2 rounded-full bg-sentinelEmerald pulse-dot"></span>
+            IT &amp; Cybersecurity Analyst | Solution Lead
+          </div>
+
+          <!-- Name -->
+          <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-slate-50 leading-[1.08] mb-4">
+            Maynul Hassan <span class="bg-gradient-to-r from-sentinelCyan via-skyAccent to-sentinelEmerald bg-clip-text text-transparent">Nissan</span>
+          </h1>
+
+          <!-- Dual-Handle Badge -->
+          <div class="flex flex-wrap items-center gap-2.5 mb-5 font-mono text-xs">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface border border-borderSlate text-slate-200">
+              <span class="text-sentinelEmerald font-semibold">dark_lemur</span>
+              <span class="text-slate-500">[Web / Bug Bounty]</span>
+            </span>
+            <span class="text-slate-600">·</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface border border-borderSlate text-slate-200">
+              <span class="text-sentinelCyan font-semibold">x_sekigan</span>
+              <span class="text-slate-500">[Shadow]</span>
+            </span>
+          </div>
+
+          <!-- Tagline -->
+          <p class="font-mono text-sm sm:text-base text-skyAccent mb-4">
+            "Precision over haste, mastery over speed."
+          </p>
+
+          <!-- Short Punchy Bio -->
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
+            Architecting enterprise MSSP stacks, on-premise Linux infrastructure, and SecOps pipelines by day — hunting web &amp; API vulnerabilities, reviewing source code, and building offensive automation by night.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="#projects" class="px-6 py-3 rounded-lg bg-gradient-to-r from-royalBlue to-sentinelCyan text-white font-mono text-xs sm:text-sm font-semibold tracking-wide hover:shadow-[0_0_24px_rgba(0,212,255,0.4)] transition-all">
+              View Projects →
+            </a>
+            <a href="#contact" class="px-6 py-3 rounded-lg bg-surface border border-borderSlate hover:border-sentinelCyan text-slate-200 hover:text-sentinelCyan font-mono text-xs sm:text-sm font-semibold tracking-wide transition-all">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column (5 cols on desktop — never drops below on lg+) -->
+        <div class="lg:col-span-5 w-full">
+          <div class="sentinel-card p-5 sm:p-6 shadow-2xl">
+            <!-- Terminal Window Header -->
+            <div class="flex items-center justify-between pb-4 mb-4 border-b border-borderSlate">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-sentinelCyan/80"></span>
+                <span class="ml-2 font-mono text-[11px] uppercase tracking-widest text-slate-400">
+                  SENTINEL IDENTITY HUD
+                </span>
+              </div>
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-sentinelEmerald/10 text-sentinelEmerald border border-sentinelEmerald/30">
+                ONLINE
+              </span>
+            </div>
+
+            <!-- Interactive Tab Switcher -->
+            <div class="grid grid-cols-2 gap-2 p-1 rounded-lg bg-obsidian border border-borderSlate mb-5 font-mono text-[11px]">
+              <button id="tabTelemetry" type="button" class="py-2 px-2 rounded-md bg-sentinelCyan/15 text-sentinelCyan border border-sentinelCyan/40 font-semibold transition-all cursor-pointer">
+                [ LIVE TELEMETRY HUD ]
+              </button>
+              <button id="tabPortrait" type="button" class="py-2 px-2 rounded-md text-slate-400 hover:text-slate-200 border border-transparent transition-all cursor-pointer">
+                [ PORTRAIT / ASCII ]
+              </button>
+            </div>
+
+            <!-- TAB 1: LIVE TELEMETRY HUD -->
+            <div id="panelTelemetry" class="space-y-4">
+              <!-- Radar SVG + Live Clock Row -->
+              <div class="flex items-center gap-4 p-3.5 rounded-lg bg-obsidian/80 border border-borderSlate">
+                <!-- Animated Radar / Shield SVG -->
+                <svg class="w-20 h-20 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="60" cy="60" r="52" stroke="#1e293b" stroke-width="1.5" />
+                  <circle cx="60" cy="60" r="36" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3" />
+                  <circle cx="60" cy="60" r="18" stroke="#00d4ff" stroke-opacity="0.35" stroke-width="1" />
+                  <line x1="60" y1="8" x2="60" y2="112" stroke="#1e293b" stroke-width="1" />
+                  <line x1="8" y1="60" x2="112" y2="60" stroke="#1e293b" stroke-width="1" />
+                  <!-- Sweep wedge -->
+                  <g class="radar-sweep">
+                    <path d="M60 60 L60 8 A52 52 0 0 1 105 34 Z" fill="url(#radarGrad)" opacity="0.45" />
+                    <line x1="60" y1="60" x2="60" y2="8" stroke="#00d4ff" stroke-width="1.5" />
+                  </g>
+                  <!-- Center Shield Core -->
+                  <path d="M60 47 L70 51 V59 C70 66 65.5 71 60 73 C54.5 71 50 66 50 59 V51 L60 47 Z" fill="#0b1120" stroke="#10b981" stroke-width="1.5" />
+                  <defs>
+                    <linearGradient id="radarGrad" x1="60" y1="8" x2="105" y2="60" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#00d4ff" />
+                      <stop offset="1" stop-color="#00d4ff" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <div class="min-w-0 flex-1 font-mono">
+                  <div class="text-[10px] uppercase tracking-widest text-slate-500">DHAKA LOCAL TIME (UTC+6)</div>
+                  <div id="dhakaClock" class="text-sm sm:text-base font-bold text-sentinelCyan mt-0.5 truncate">
+                    --:--:--
+                  </div>
+                  <div id="dhakaDate" class="text-[11px] text-slate-400 mt-0.5">
+                    Loading telemetry...
+                  </div>
+                </div>
+              </div>
+
+              <!-- Key-Value Telemetry Rows -->
+              <div class="space-y-2.5 font-mono text-xs bg-obsidian/60 p-3.5 rounded-lg border border-borderSlate/80">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-slate-500">ROLE</span>
+                  <span class="text-slate-200 text-right">IT &amp; Cyber Analyst / Lead</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-slate-500">HANDLES</span>
+                  <span class="text-sentinelEmerald text-right">dark_lemur · x_sekigan</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-slate-500">FOCUS</span>
+                  <span class="text-slate-200 text-right">AppSec · MSSP · SecOps</span>
+                </div>
+              </div>
+
+              <!-- Live Cert Mini-Progress Bars (Synced from CERT_ROADMAP) -->
+              <div id="hudCertProgress" class="space-y-3 pt-1">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+
+            <!-- TAB 2: PORTRAIT / ASCII DROP-IN CONTAINER -->
+            <div id="panelPortrait" class="hidden">
+              <div class="relative rounded-lg bg-obsidian border border-borderSlate overflow-hidden aspect-[4/4] flex flex-col items-center justify-center p-4">
+                <!-- Attempts to load ./assets/ascii-face.png; falls back cleanly to inline Sentinel ASCII/SVG emblem -->
+                <img
+                  id="asciiPortraitImg"
+                  src="./assets/ascii-face.png"
+                  alt="Maynul Hassan Nissan ASCII Portrait"
+                  class="w-full h-full object-contain rounded-md"
+                  onerror="this.classList.add('hidden'); document.getElementById('asciiFallback').classList.remove('hidden');"
+                />
+
+                <!-- Clean Inline Fallback SVG (shown if ./assets/ascii-face.png is not yet uploaded) -->
+                <div id="asciiFallback" class="hidden flex flex-col items-center justify-center text-center p-4">
+                  <svg class="w-24 h-24 mb-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="12" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4 4" />
+                    <path d="M50 20 L74 30 V50 C74 66 63.5 78 50 83 C36.5 78 26 66 26 50 V30 L50 20 Z" stroke="#00d4ff" stroke-width="2" fill="#0b1120" />
+                    <path d="M39 50 L46 57 L62 41" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="font-mono text-xs text-sentinelCyan font-semibold tracking-wider mb-1">
+                    // ASCII PORTRAIT SLOT
+                  </div>
+                  <p class="font-mono text-[11px] text-slate-400 max-w-[240px] leading-relaxed">
+                    Place your cropped dark-background PNG at <code class="text-slate-200 bg-surface px-1.5 py-0.5 rounded">./assets/ascii-face.png</code> to render it here automatically.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. EXPERIENCE TIMELINE SECTION ==================== -->
+    <section id="experience" class="py-16 lg:py-20 border-t border-borderSlate/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sentinelCyan">01 // Career Trajectory</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-50 mt-1">Experience</h2>
+        </div>
+        <span class="font-mono text-xs text-slate-400">Speedway Solutions Ltd. &amp; Speedway Sentinel</span>
+      </div>
+
+      <div class="relative border-l border-borderSlate ml-3 sm:ml-4 space-y-6">
+
+        <!-- Role 1: Cybersecurity Solution Lead -->
+        <div class="relative pl-7 sm:pl-9">
+          <span class="absolute -left-[6.5px] top-6 w-3 h-3 rounded-full bg-sentinelCyan shadow-[0_0_12px_#00d4ff]"></span>
+          <div class="sentinel-card p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="font-display font-bold text-xl text-slate-50">Cybersecurity Solution Lead</h3>
+                <p class="font-mono text-xs text-sentinelCyan mt-0.5">Speedway Sentinel (Cybersecurity Wing of Speedway Solutions Ltd.)</p>
+              </div>
+              <span class="inline-flex items-center self-start sm:self-center px-2.5 py-1 rounded-md bg-sentinelCyan/10 border border-sentinelCyan/30 text-sentinelCyan font-mono text-[11px] font-medium">
+                Active Leadership
+              </span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Leading the cybersecurity wing from the ground up — architected the end-to-end MSSP technology stack, designed structured service tiers and bundled security offerings, driving hands-on security delivery, and representing the wing as its technical and marketing face.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 2: IT & Cybersecurity Analyst -->
+        <div class="relative pl-7 sm:pl-9">
+          <span class="absolute -left-[6.5px] top-6 w-3 h-3 rounded-full bg-sentinelEmerald"></span>
+          <div class="sentinel-card p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-slate-50">IT &amp; Cybersecurity Analyst</h3>
+                <p class="font-mono text-xs text-slate-400 mt-0.5">Speedway Solutions Ltd.</p>
+              </div>
+              <span class="font-mono text-xs text-sentinelEmerald bg-sentinelEmerald/10 border border-sentinelEmerald/30 px-2.5 py-1 rounded-md self-start sm:self-center">
+                Full-Time
+              </span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Managing enterprise Linux virtualization, network perimeter security, SIEM monitoring, endpoint protection, and internal web/API security assessments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 3: Jr. IT & Cybersecurity Analyst -->
+        <div class="relative pl-7 sm:pl-9">
+          <span class="absolute -left-[6.5px] top-6 w-3 h-3 rounded-full bg-slate-600"></span>
+          <div class="sentinel-card p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div>
+                <h3 class="font-display font-bold text-lg text-slate-100">Jr. IT &amp; Cybersecurity Analyst</h3>
+                <p class="font-mono text-xs text-slate-400 mt-0.5">Speedway Solutions Ltd.</p>
+              </div>
+              <span class="font-mono text-xs text-slate-400 bg-obsidian border border-borderSlate px-2.5 py-1 rounded-md self-start sm:self-center">
+                Full-Time · 6 Months
+              </span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Deployed and hardened centralized on-premise infrastructure (Proxmox VE, Samba4 AD, Wazuh SIEM, Restic backups, WireGuard VPN) and conducted staging application pentesting.
+            </p>
+          </div>
+        </div>
+
+        <!-- Role 4: Network Security & IT Intern -->
+        <div class="relative pl-7 sm:pl-9">
+          <span class="absolute -left-[6.5px] top-6 w-3 h-3 rounded-full bg-slate-700"></span>
+          <div class="sentinel-card p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div>
+                <h3 class="font-display font-bold text-lg text-slate-100">Network Security &amp; IT Intern</h3>
+                <p class="font-mono text-xs text-slate-400 mt-0.5">Speedway Solutions Ltd.</p>
+              </div>
+              <span class="font-mono text-xs text-slate-400 bg-obsidian border border-borderSlate px-2.5 py-1 rounded-md self-start sm:self-center">
+                4 Months
+              </span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Assisted with enterprise network migration, MikroTik/Cisco switch configuration, server rack deployment, and vulnerability remediation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. PROJECTS & SECURITY RESEARCH SECTION ==================== -->
+    <section id="projects" class="py-16 lg:py-20 border-t border-borderSlate/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sentinelCyan">02 // Engineering &amp; Research</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-50 mt-1">Projects &amp; Security Research</h2>
+        </div>
+        <span class="font-mono text-xs text-slate-400">04 Core Initiatives</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Project 1: SpecTre-Q -->
+        <article class="sentinel-card p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-xs text-sentinelCyan">01 // CUSTOM TOOLING</span>
+              <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-sentinelCyan/10 text-sentinelCyan border border-sentinelCyan/30">
+                Architectural Rewrite
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-slate-50 mb-3">
+              SpecTre-Q (Python CLI)
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Custom Python CLI cybersecurity utility featuring k-anonymity breach lookups, password entropy analysis, IP reputation checks, and automated PDF audit reporting. Currently undergoing a full architectural rewrite for cleaner modularity and expanded offensive/defensive modules.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-borderSlate/80 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-sentinelCyan">Python</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">k-Anonymity</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">PDF Reporting</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">CLI</span>
+          </div>
+        </article>
+
+        <!-- Project 2: Enterprise MSSP Stack Architecture -->
+        <article class="sentinel-card p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-xs text-sentinelCyan">02 // MSSP ARCHITECTURE</span>
+              <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-sentinelEmerald/10 text-sentinelEmerald border border-sentinelEmerald/30">
+                Production Design
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-slate-50 mb-3">
+              Enterprise MSSP Stack Architecture
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Designed and integrated an end-to-end Managed Security Service Provider stack covering RMM, managed EDR/MDR, identity governance, immutable cloud backups, and dark web threat intelligence.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-borderSlate/80 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-sentinelCyan">NinjaOne</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Huntress</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Bitdefender</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Entra ID</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Backblaze B2</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Restic</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">HIBP / IntelX</span>
+          </div>
+        </article>
+
+        <!-- Project 3: Corporate SecOps & Suricata Honeypot -->
+        <article class="sentinel-card p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-xs text-sentinelCyan">03 // SECOPS &amp; DETECTION</span>
+              <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-sentinelEmerald/10 text-sentinelEmerald border border-sentinelEmerald/30">
+                Deployed
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-slate-50 mb-3">
+              Corporate SecOps &amp; Suricata Honeypot
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Architected on-premise Proxmox VE virtualization with centralized Wazuh SIEM logging, WireGuard VPN remote access, and a custom Suricata IDS/Honeypot deployment to capture and analyze corporate threat telemetry.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-borderSlate/80 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-sentinelCyan">Proxmox VE</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Wazuh SIEM</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Suricata IDS</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Honeypot</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">WireGuard</span>
+          </div>
+        </article>
+
+        <!-- Project 4: Web & API Security Research (Anonymized) -->
+        <article class="sentinel-card p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-xs text-sentinelCyan">04 // OFFENSIVE RESEARCH</span>
+              <span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-royalBlue/20 text-skyAccent border border-skyAccent/30">
+                Anonymized
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-slate-50 mb-3">
+              Web &amp; API Vulnerability Research
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Hands-on multi-tenant SaaS API assessments uncovering 2FA <code class="text-slate-200 font-mono text-xs">tempToken</code> scope bypasses, Cross-Tenant BOLA/IDOR, and Stored CSS Injection via OAST. Includes a HackerOne submission, 3x duplicate findings on a major SaaS platform, and WordPress security hardening.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-borderSlate/80 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-sentinelCyan">API Security</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">BOLA / IDOR</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">2FA Bypass</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">OAST</span>
+            <span class="px-2.5 py-1 rounded bg-obsidian border border-borderSlate text-slate-300">Bug Bounty</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. CERTIFICATIONS & EASY-TO-UPDATE ROADMAP ==================== -->
+    <section id="roadmap" class="py-16 lg:py-20 border-t border-borderSlate/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sentinelCyan">03 // Credentials &amp; Progression</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-50 mt-1">Certifications &amp; Roadmap</h2>
+        </div>
+        <span class="font-mono text-xs text-slate-400">
+          Config-driven · Easy to update in <code class="text-sentinelCyan">CERT_ROADMAP</code>
+        </span>
+      </div>
+
+      <!-- Dynamically Rendered Roadmap Grid -->
+      <div id="roadmapGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Populated automatically from CERT_ROADMAP array in JS -->
+      </div>
+    </section>
+
+    <!-- ==================== 6. SKILLS & TOOLSET ARSENAL ==================== -->
+    <section id="arsenal" class="py-16 lg:py-20 border-t border-borderSlate/80">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-sentinelCyan">04 // Technical Capabilities</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-50 mt-1">Skills &amp; Toolset Arsenal</h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div id="arsenalFilters" class="flex flex-wrap gap-2 font-mono text-xs">
+          <button data-filter="all" class="filter-btn px-3.5 py-2 rounded-lg bg-sentinelCyan/15 text-sentinelCyan border border-sentinelCyan/40 font-semibold transition-all cursor-pointer">
+            All
+          </button>
+          <button data-filter="whitebox" class="filter-btn px-3.5 py-2 rounded-lg bg-surface text-slate-400 border border-borderSlate hover:text-slate-200 hover:border-sentinelCyan/40 transition-all cursor-pointer">
+            White-Box &amp; Scripting
+          </button>
+          <button data-filter="offsec" class="filter-btn px-3.5 py-2 rounded-lg bg-surface text-slate-400 border border-borderSlate hover:text-slate-200 hover:border-sentinelCyan/40 transition-all cursor-pointer">
+            OffSec &amp; Web
+          </button>
+          <button data-filter="network" class="filter-btn px-3.5 py-2 rounded-lg bg-surface text-slate-400 border border-borderSlate hover:text-slate-200 hover:border-sentinelCyan/40 transition-all cursor-pointer">
+            Network &amp; Recon
+          </button>
+          <button data-filter="secops" class="filter-btn px-3.5 py-2 rounded-lg bg-surface text-slate-400 border border-borderSlate hover:text-slate-200 hover:border-sentinelCyan/40 transition-all cursor-pointer">
+            SecOps &amp; MSSP
+          </button>
+        </div>
+      </div>
+
+      <!-- Categorized Arsenal Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Category 1: White-Box & Scripting -->
+        <div class="sentinel-card p-6 arsenal-card" data-category="whitebox">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-borderSlate">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-widest text-sentinelCyan">
+              White-Box &amp; Scripting
+            </h3>
+            <span class="font-mono text-[11px] text-slate-500">07 Tools</span>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Python</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Go</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">JavaScript</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">HTML5</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Bash</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">PowerShell</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">CMD</span>
+          </div>
+        </div>
+
+        <!-- Category 2: OffSec & Web -->
+        <div class="sentinel-card p-6 arsenal-card" data-category="offsec">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-borderSlate">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-widest text-sentinelCyan">
+              OffSec &amp; Web
+            </h3>
+            <span class="font-mono text-[11px] text-slate-500">14 Tools</span>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Burp Suite</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">OWASP Top 10</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">ffuf</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Dirsearch</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Katana</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Subfinder</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Sublist3r</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">httpx</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Nikto</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">WPScan</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">curl</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Wappalyzer</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">WhatWeb</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">BuiltWith</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Network, Recon & Post-Ex -->
+        <div class="sentinel-card p-6 arsenal-card" data-category="network">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-borderSlate">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-widest text-sentinelCyan">
+              Network, Recon &amp; Post-Ex
+            </h3>
+            <span class="font-mono text-[11px] text-slate-500">19 Tools</span>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Nmap</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Nessus</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Wireshark</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">tcpdump</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">dig</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">host</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">nslookup</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">whois</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">theHarvester</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Infoga</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">OSINT Framework</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">ProxyChains4</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">LinPEAS</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">LinEnum</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">SSH</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">SCP</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">netstat</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">UFW</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Kali Linux</span>
+          </div>
+        </div>
+
+        <!-- Category 4: SecOps & MSSP -->
+        <div class="sentinel-card p-6 arsenal-card" data-category="secops">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-borderSlate">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-widest text-sentinelCyan">
+              SecOps &amp; MSSP
+            </h3>
+            <span class="font-mono text-[11px] text-slate-500">17 Tools</span>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Proxmox VE</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Wazuh SIEM</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Suricata</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">NinjaOne</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Huntress</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Bitdefender GravityZone</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Entra ID</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">FleetDM</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">MeshCentral</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Restic</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Backblaze B2</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Vaultwarden</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Grafana</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Uptime Kuma</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">MikroTik</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">Cisco</span>
+            <span class="px-3 py-1.5 rounded-md bg-obsidian border border-borderSlate text-slate-200 hover:border-sentinelCyan/60 transition-colors">WireGuard</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 7. CONTACT SECTION ==================== -->
+    <section id="contact" class="py-16 lg:py-20 border-t border-borderSlate/80">
+      <div class="mb-10">
+        <span class="font-mono text-xs uppercase tracking-widest text-sentinelCyan">05 // Initiate Handshake</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-50 mt-1">Contact &amp; Channels</h2>
+        <p class="text-slate-400 text-sm mt-2 max-w-xl">
+          Reach out for cybersecurity research, MSSP/SecOps architecture, bug bounty collaboration, or technical discussions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <!-- Email Card 1 -->
+        <div class="sentinel-card p-6 flex items-center justify-between gap-4">
+          <div class="min-w-0">
+            <div class="font-mono text-[11px] uppercase tracking-widest text-sentinelCyan mb-1">
+              Shadow / Security Email
+            </div>
+            <a href="mailto:xsekigan@gmail.com" class="font-mono text-sm sm:text-base text-slate-100 hover:text-sentinelCyan transition-colors truncate block">
+              xsekigan@gmail.com
+            </a>
+          </div>
+          <button type="button" data-copy="xsekigan@gmail.com" class="copy-btn shrink-0 px-3.5 py-2 rounded-lg bg-obsidian border border-borderSlate hover:border-sentinelCyan text-slate-300 hover:text-sentinelCyan font-mono text-xs transition-all cursor-pointer">
+            Copy
+          </button>
+        </div>
+
+        <!-- Email Card 2 -->
+        <div class="sentinel-card p-6 flex items-center justify-between gap-4">
+          <div class="min-w-0">
+            <div class="font-mono text-[11px] uppercase tracking-widest text-sentinelEmerald mb-1">
+              Primary / Professional Email
+            </div>
+            <a href="mailto:nissanmis16du@gmail.com" class="font-mono text-sm sm:text-base text-slate-100 hover:text-sentinelEmerald transition-colors truncate block">
+              nissanmis16du@gmail.com
+            </a>
+          </div>
+          <button type="button" data-copy="nissanmis16du@gmail.com" class="copy-btn shrink-0 px-3.5 py-2 rounded-lg bg-obsidian border border-borderSlate hover:border-sentinelEmerald text-slate-300 hover:text-sentinelEmerald font-mono text-xs transition-all cursor-pointer">
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Links Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="https://www.linkedin.com/in/maynul-hassan-nissan/" target="_blank" rel="noopener noreferrer" class="sentinel-card p-5 flex items-center justify-between group">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-lg bg-royalBlue/15 border border-royalBlue/30 flex items-center justify-center text-skyAccent font-mono font-bold text-sm">
+              in
+            </div>
+            <div>
+              <div class="font-display font-semibold text-slate-100 group-hover:text-sentinelCyan transition-colors">LinkedIn</div>
+              <div class="font-mono text-xs text-slate-400">/in/maynul-hassan-nissan</div>
+            </div>
+          </div>
+          <span class="font-mono text-slate-500 group-hover:text-sentinelCyan transition-colors">↗</span>
+        </a>
+
+        <a href="https://github.com/NISSAN40499" target="_blank" rel="noopener noreferrer" class="sentinel-card p-5 flex items-center justify-between group">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-lg bg-obsidian border border-borderSlate flex items-center justify-center text-slate-200 font-mono font-bold text-sm">
+              GH
+            </div>
+            <div>
+              <div class="font-display font-semibold text-slate-100 group-hover:text-sentinelCyan transition-colors">GitHub</div>
+              <div class="font-mono text-xs text-slate-400">@NISSAN40499</div>
+            </div>
+          </div>
+          <span class="font-mono text-slate-500 group-hover:text-sentinelCyan transition-colors">↗</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="border-t border-borderSlate/80 bg-obsidian py-8 mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-slate-500">
+      <div>
+        &copy; <span id="footerYear">2026</span> Maynul Hassan Nissan · <span class="text-sentinelCyan">x_sekigan</span> // <span class="text-sentinelEmerald">dark_lemur</span>
+      </div>
+      <div class="text-slate-400">
+        Precision over haste, mastery over speed.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    /**
+     * =========================================================================
+     * EASY-TO-UPDATE CERTIFICATION ROADMAP CONFIG
+     * Update `progress` (0-100) or `status` ('completed' | 'in-progress' | 'upcoming')
+     * and the Roadmap grid + Hero HUD will update automatically.
+     * =========================================================================
+     */
+    const CERT_ROADMAP = [
+      {
+        name: 'Hacking 101',
+        provider: 'Offensive Foundations',
+        status: 'completed',
+        progress: 100,
+        badge: 'Certified · 100%',
+      },
+      {
+        name: 'Intro to Network Analysis',
+        provider: 'Security Blue Team',
+        status: 'completed',
+        progress: 100,
+        badge: 'Certified',
+      },
+      {
+        name: 'HTB CJCA',
+        provider: 'Hack The Box Academy',
+        status: 'in-progress',
+        progress: 62,
+        badge: 'In Progress',
+      },
+      {
+        name: 'HTB CWES',
+        provider: 'Hack The Box Academy',
+        status: 'in-progress',
+        progress: 9,
+        badge: 'In Progress',
+      },
+      {
+        name: 'MTCNA',
+        provider: 'MikroTik Networking',
+        status: 'upcoming',
+        progress: 0,
+        badge: 'Upcoming Target',
+      },
+      {
+        name: 'HTB CPTS',
+        provider: 'Penetration Testing Specialist',
+        status: 'upcoming',
+        progress: 0,
+        badge: 'Upcoming Target',
+      },
+      {
+        name: 'HTB CWEE',
+        provider: 'White-Box Web Exploitation',
+        status: 'upcoming',
+        progress: 0,
+        badge: 'Upcoming Target',
+      },
+      {
+        name: 'COAE + CDSA',
+        provider: 'Purple Team & AI Red Teaming',
+        status: 'upcoming',
+        progress: 0,
+        badge: 'Long-Term Horizon',
+      },
+    ];
+
+    // 1. Render Certifications Roadmap Grid & Hero HUD Progress
+    function renderRoadmap() {
+      const grid = document.getElementById('roadmapGrid');
+      const hudProgress = document.getElementById('hudCertProgress');
+      if (!grid || !hudProgress) return;
+
+      grid.innerHTML = CERT_ROADMAP.map((cert) => {
+        const isDone = cert.status === 'completed';
+        const isActive = cert.status === 'in-progress';
+
+        let badgeClass = 'bg-obsidian text-slate-400 border-borderSlate';
+        if (isDone) badgeClass = 'bg-sentinelEmerald/15 text-sentinelEmerald border-sentinelEmerald/40';
+        if (isActive) badgeClass = 'bg-sentinelCyan/15 text-sentinelCyan border-sentinelCyan/40';
+
+        const barColor = isDone
+          ? 'bg-sentinelEmerald'
+          : isActive
+          ? 'bg-gradient-to-r from-royalBlue to-sentinelCyan'
+          : 'bg-slate-700';
+
+        return `
+          <div class="sentinel-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded border ${badgeClass}">
+                  ${cert.badge}
+                </span>
+                ${isActive ? `<span class="font-mono text-xs font-bold text-sentinelCyan">${cert.progress}%</span>` : ''}
+                ${isDone ? `<span class="font-mono text-xs font-bold text-sentinelEmerald">✓</span>` : ''}
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-50">${cert.name}</h3>
+              <p class="font-mono text-xs text-slate-400 mt-1">${cert.provider}</p>
+            </div>
+
+            <div class="mt-5">
+              <div class="w-full h-1.5 rounded-full bg-obsidian border border-borderSlate overflow-hidden">
+                <div class="h-full ${barColor} transition-all duration-500" style="width: ${cert.progress}%;"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Render active in-progress items inside the Hero HUD
+      const activeCerts = CERT_ROADMAP.filter((c) => c.status === 'in-progress');
+      hudProgress.innerHTML = activeCerts.map((cert) => `
+        <div>
+          <div class="flex items-center justify-between font-mono text-[11px] mb-1.5">
+            <span class="text-slate-300">${cert.name}</span>
+            <span class="text-sentinelCyan font-semibold">${cert.progress}%</span>
+          </div>
+          <div class="w-full h-1.5 rounded-full bg-obsidian border border-borderSlate overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-royalBlue to-sentinelCyan" style="width: ${cert.progress}%;"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 2. Live Dhaka (Asia/Dhaka, UTC+6) Digital Clock
+    function updateDhakaClock() {
+      const clockEl = document.getElementById('dhakaClock');
+      const dateEl = document.getElementById('dhakaDate');
+      if (!clockEl || !dateEl) return;
+
+      try {
+        const now = new Date();
+        const timeStr = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Dhaka',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        }).format(now);
+
+        const dateStr = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Dhaka',
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: '2-digit',
+        }).format(now);
+
+        clockEl.textContent = timeStr;
+        dateEl.textContent = dateStr;
+      } catch (err) {
+        clockEl.textContent = new Date().toLocaleTimeString();
+      }
+    }
+
+    // 3. Hero HUD Tab Switcher
+    const tabTelemetry = document.getElementById('tabTelemetry');
+    const tabPortrait = document.getElementById('tabPortrait');
+    const panelTelemetry = document.getElementById('panelTelemetry');
+    const panelPortrait = document.getElementById('panelPortrait');
+
+    function setHudTab(active) {
+      const activeClasses = ['bg-sentinelCyan/15', 'text-sentinelCyan', 'border-sentinelCyan/40', 'font-semibold'];
+      const inactiveClasses = ['text-slate-400', 'border-transparent'];
+
+      if (active === 'telemetry') {
+        panelTelemetry.classList.remove('hidden');
+        panelPortrait.classList.add('hidden');
+        tabTelemetry.classList.add(...activeClasses);
+        tabTelemetry.classList.remove(...inactiveClasses);
+        tabPortrait.classList.remove(...activeClasses);
+        tabPortrait.classList.add(...inactiveClasses);
+      } else {
+        panelPortrait.classList.remove('hidden');
+        panelTelemetry.classList.add('hidden');
+        tabPortrait.classList.add(...activeClasses);
+        tabPortrait.classList.remove(...inactiveClasses);
+        tabTelemetry.classList.remove(...activeClasses);
+        tabTelemetry.classList.add(...inactiveClasses);
+      }
+    }
+
+    tabTelemetry.addEventListener('click', () => setHudTab('telemetry'));
+    tabPortrait.addEventListener('click', () => setHudTab('portrait'));
+
+    // 4. Arsenal Category Filter Tabs
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const arsenalCards = document.querySelectorAll('.arsenal-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-sentinelCyan/15', 'text-sentinelCyan', 'border-sentinelCyan/40', 'font-semibold');
+          b.classList.add('bg-surface', 'text-slate-400', 'border-borderSlate');
+        });
+
+        btn.classList.add('bg-sentinelCyan/15', 'text-sentinelCyan', 'border-sentinelCyan/40', 'font-semibold');
+        btn.classList.remove('bg-surface', 'text-slate-400', 'border-borderSlate');
+
+        arsenalCards.forEach((card) => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 5. One-Click Copy Email Buttons (iframe-safe execCommand fallback)
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const textToCopy = btn.getAttribute('data-copy');
+        const tempInput = document.createElement('textarea');
+        tempInput.value = textToCopy;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        try {
+          document.execCommand('copy');
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          btn.classList.add('text-sentinelEmerald', 'border-sentinelEmerald');
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('text-sentinelEmerald', 'border-sentinelEmerald');
+          }, 1800);
+        } catch (err) {
+          btn.textContent = 'Failed';
+        }
+        document.body.removeChild(tempInput);
+      });
+    });
+
+    // 6. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Initialize on load
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    renderRoadmap();
+    updateDhakaClock();
+    setInterval(updateDhakaClock, 1000);
+  </script>
+</body>
+</html>
